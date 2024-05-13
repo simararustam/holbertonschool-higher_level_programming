@@ -5,7 +5,7 @@ number = random.randint(-10000, 10000)
 if number >= 0:
     last_dig = str(number)[-1:]
 else:
-    last_dig = str(number)[:2]
+    last_dig = f"{str(number)[:1]}{str(number)[-1:]}"
 
 last_dig = int(last_dig)
 
