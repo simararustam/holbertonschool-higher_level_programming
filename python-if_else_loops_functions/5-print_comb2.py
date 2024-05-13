@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-for i in range(0, 99):
+for i in range(0, 100):
+    char = '\n'
     if i < 10:
         print(0, end='')
-    print(i, end=', ')
     
-print(99)
+    if i <= 98:
+        char = ', '
+    print(i, end=char)
