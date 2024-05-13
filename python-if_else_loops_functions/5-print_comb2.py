@@ -1,9 +1,4 @@
 #!/usr/bin/python3
-for i in range(0, 100):
-    char = '\n'
-    if i < 10:
-        print(0, end='')
-    
-    if i <= 98:
-        char = ', '
-    print(i, end=char)
+for i in range(100):
+    end_char = '\n' if i == 99 else ', '
+    print('{:02d}{}'.format(i, end_char), end='')
