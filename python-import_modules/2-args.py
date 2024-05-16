@@ -7,7 +7,13 @@ if __name__ == "__main__":
     j = -1
     for i in sys.argv:
         j += 1
-    print("{} arguments:".format(j))
+
+    if j == 0:
+        print("0 arguments.")
+    elif j == 1:
+        print("{} argument:".format(j))
+    elif j > 1:
+        print("{} arguments:".format(j))
     
     k = 1
     while k < length:
