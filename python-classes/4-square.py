@@ -20,7 +20,7 @@ class Square:
         else:
             self.__size = value
 
-    @size.self
+    @property
     def size(self):
         """Getter method for the size attribute."""
 
