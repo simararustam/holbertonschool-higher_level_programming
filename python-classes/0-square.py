@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-class Square:
-    """ This class currently has no attributes or methods defined. """
+"""Module containing the definition of the Square class."""
 
-    """Example Usage:
-    --------------
-    square = Square()
-    print("Created an instance of Square:", square)
-    """
+
+class Square:
+    """An empty class that defines a square"""
     pass
