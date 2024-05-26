@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module that defines a square by: (based on 0-square.p) """
+
+
 class Square:
     """Square Class"""
     def __init__(self, size):
