@@ -5,10 +5,11 @@
 def matrix_divided(matrix, div):
     """---"""
 
+    matrixError = "matrix must be a matrix (list of lists) of integers/floats"
+
     if not isinstance(matrix, list):
-        raise TypeError(
-                "matrix must be a matrix (list of lists) of integers/floats"
-        )
+        raise TypeError(matrixError)
+
     if not all(isinstance(row, list) for row in matrix):
         raise TypeError(
                 "matrix must be a matrix (list of lists) of integers/floats"
@@ -28,9 +29,7 @@ def matrix_divided(matrix, div):
         new_row = []
         for elm in row:
             if not isinstance(elm, (int, float)):
-                raise TypeError(
-                    "matrix must be a matrix (list of lists) of integers/floats"
-                )
+                raise TypeError(matrixError)
             new_row.append(round(elm / div, 2))
         new_mat.append(new_row)
 
