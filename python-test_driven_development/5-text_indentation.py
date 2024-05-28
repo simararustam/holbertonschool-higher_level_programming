@@ -21,4 +21,4 @@ def text_indentation(text):
                 continue
             _text += text[i]
             i += 1
-    print(_text)
+    print(_text.strip())
