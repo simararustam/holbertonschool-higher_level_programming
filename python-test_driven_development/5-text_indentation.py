@@ -1,24 +1,27 @@
 #!/usr/bin/python3
-"""This script defines a function to print a \
-text with two new lines after each '.', '?', or ':' character."""
+"""
+    The ``4. Text indentation`` module
+    This module contains text_indentation function.
+"""
 
 
 def text_indentation(text):
-    """Prints the given text with two new lines after each '.', '?', or ':'."""
-
+    """
+        text_indentation - seperate text.
+    """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    new_str = []
-    _text = ""
-    i = 0
-    while i < len(text):
-        if text[i] in ['.', '?', ':']:
-            _text += text[i] + '\n'
-            i += 1
-        else:
-            if text[i] == ' ' and i > 0 and text[i - 1] in ['.', '?', ':']:
-                i += 1
-                continue
-            _text += text[i]
-            i += 1
-    print(_text.strip())
+    text_list = []
+    single_sentence = ""
+    for letter in text:
+        single_sentence += letter
+        if letter == "." or letter == "?" or letter == ":":
+            text_list.append(single_sentence)
+            single_sentence = ""
+    text_list.append(single_sentence)
+    edited_list = []
+    for txt in text_list:
+        txt = txt.strip()
+        edited_list.append(txt)
+    output = "\n\n".join(edited_list)
+    print(output, end="")
