@@ -9,6 +9,9 @@ Test for class MyList in 1-my_list.py
 >>> type(my_list)
 <class '1-my_list.MyList'>
 
+>>> my_list.print_sorted()
+[]
+
 >>> my_list.append(1)
 
 >>> my_list.append(4)
