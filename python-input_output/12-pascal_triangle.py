@@ -7,16 +7,17 @@ def pascal_triangle(n):
     if n <= 0:
         return list
 
-    current_list = [1]
-    temp = []
-    last_version = []
+    curr_list = [1]
+    temp_list = []
+    pascal_tri = []
 
     for i in range(n):
-        temp.append(1)
-        for y in range(1, len(current_list)):
-            temp.append(current_list[y] + current_list[y - 1])
-        temp.append(1)
-        last_version.append(current_list)
-        current_list = temp
-        temp = []
-    return last_version
+        temp_list.append(1)
+        for j in range(1, len(curr_list)):
+            temp_list.append(curr_list[j] + curr_list[j - 1])
+        temp_list.append(1)
+
+        pascal_tri.append(curr_list)
+        curr_list = temp_list
+        temp_list = []
+    return pascal_tri
