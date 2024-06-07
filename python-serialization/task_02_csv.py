@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Converting CSV Data to JSON Format"""
 import csv
 import json
 
@@ -8,9 +9,9 @@ def convert_csv_to_json(csvFilePath):
             csv_reader = csv.DictReader(csv)
             csv_data = [row for row in csv_reader]
 
-        json_data = json.dumps(data, ident=4)
+        json_data = json.dumps(csv_data, ident=4)
 
-        with open("data.json", mode="w") as json_file:
+        with open('data.json', mode="w") as json_file:
             json_file.write(json_data)
 
         return True
