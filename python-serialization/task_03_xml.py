@@ -1,30 +1,33 @@
 #!/usr/bin/env python3
-"""Serializing and Deserializing with XML"""
+
+"""
+The ''3. Serializing and Deserializing with XML'' module
+"""
+
 import xml.etree.ElementTree as ET
 
 
 def serialize_to_xml(dictionary, filename):
-    """This will take a Python dictionary
-    and a filename as parameters."""
+    """
+    serialize_to_xml - function to take a
+    Python dictionary and a filename as parameters.
+    """
     root = ET.Element('data')
-
-    for key, value in dictionary_items():
-        child = ET.Element(key)
+    for key, value in dictionary.items():
+        child = ET.SubElement(root, key)
         child.text = str(value)
-        root.append(child)
-
     tree = ET.ElementTree(root)
+    tree.write(filename)
 
-    tree.write(filename, encoding='utf-8', xml_declaration=True)
 
 def deserialize_from_xml(filename):
-    """Parse the XML file"""
-    tree = ET.parse(xml_file_path)
+    """
+    deserialize_from_xml - function to take a filename
+    as its parameter, read the XML data from that file,
+    """
+    data = {}
+    tree = ET.parse(filename)
     root = tree.getroot()
-
-    data_dict = {}
     for child in root:
-        data_dict[child.tag] = child.text
-
-    return data_dict
-    
+        data[child.tag] = child.text
+    return data
