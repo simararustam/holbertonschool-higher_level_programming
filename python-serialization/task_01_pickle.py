@@ -36,5 +36,11 @@ class CustomObject:
         """
         Deserialize an object from a file using pickle.
         """
-        with open(filename, mode="rb") as file:
-            return pickle.load(file)
+        try:
+            with open(filename, mode="rb") as file:
+                return pickle.load(file)
+        except FileNotFoundError:
+            print("File not found.")
+        except Exception as e:
+            print("Error occurred while deserializing:", e)
+            return None
