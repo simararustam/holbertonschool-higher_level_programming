@@ -2,18 +2,18 @@ import http.server
 
 class SimpleAPI(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path = '/':
+        if self.path == '/':
             self.send_response(200)
             self.send_header("Content-Type", "application/json;charset=UTF-8")
             self.end_headers()
             self.wfile.write("Hello, this is a simple API!")
-        elif self.path = '/data':
+        elif self.path == '/data':
             self.send_response(200)
             self.send_header("Content-Type", "application/json;charset=UTF-8")
             self.end_headers()
             data = '{"name": "John", "age": 30, "city": "New York"}'
             self.wfile.write(data.encode())
-        elif self.path = '/status':
+        elif self.path == '/status':
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
