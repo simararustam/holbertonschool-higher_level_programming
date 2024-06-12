@@ -26,7 +26,7 @@ def user(username):
         return jsonify({'error': 'Username is required'}), 400
     if username not in all_users:
         return jsonify({"error": "User not found"}), 404
-    return return jsonify(all_users[username])
+    return jsonify(all_users[username])
 
 @app.route('/add_user')
 def add_user():
