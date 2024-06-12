@@ -5,6 +5,11 @@ from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from flask_jwt_extended import (JWTManager, create_access_token, jwt_required, get_jwt_identity)
 
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'superincredibleamazingsecretkey'
+auth = HTTPBasicAuth()
+jwt = JWTManager(app)
+
 users = {
     "user1": {
         "username": "user1",
@@ -18,10 +23,6 @@ users = {
     }
 }
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'superincredibleamazingsecretkey'
-auth = HTTPBasicAuth()
-jwt = JWTManager(app)
 
 @auth.verify_password
 def verify_password(username, password):
@@ -47,6 +48,8 @@ def login():
         access_token = create_access_token(identity={'username': username,
                                                      'role': user['role']})
         return jsonify(access_token=access_token)
+    return jsonify({"error": "Invalid credentials"}), 401
+
 
 @app.route('/jwt-protected')
 @jwt_required()
