@@ -25,6 +25,6 @@ class SimpleAPI(http.server.BaseHTTPRequestHandler):
             self.wfile.write(b'404 Not Found')
 
 if __name__ == "__main__":
-    server_adress = ('', 8000)
-    httpd = http.server.HTTPServer(server_address, SimpleAPI)
+    server_address = ('', 8000)
+    httpd = http.server.HTTPServer(server_address, SimpleAPIHandler)
     httpd.serve_forever()
