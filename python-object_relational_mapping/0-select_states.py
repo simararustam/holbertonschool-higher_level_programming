@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """Get all states"""
-
-import sys
 import MySQLdb as mysql
+import sys
 
 if __name__ == "__main__":
     mysql_username = sys.argv[1]
@@ -12,14 +11,13 @@ if __name__ == "__main__":
     db = mysql.connect(
         host="localhost",
         port=3306,
-        user=mysql_username,
-        passwd=mysql_password,
+        user=mysql_username, 
+        passwd=mysql_password, 
         db=database_name
     )
-
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    result = cursor.fetchall()
-
-    for x in result:
-        print(x)
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    rows = cur.fetchall()
+    
+    for row in rows:
+        print(row)
