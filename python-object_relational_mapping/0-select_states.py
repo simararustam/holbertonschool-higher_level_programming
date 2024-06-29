@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Get all states"""
+"""
+Get all states
+"""
 
 import sys
 import MySQLdb as mysql
@@ -17,9 +19,9 @@ if __name__ == "__main__":
         passwd=mysql_password, 
         db=database_name
     )
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY id ASC")
-    rows = cur.fetchall()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    rows = cursor.fetchall()
     
     for row in rows:
         print(row)
