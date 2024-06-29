@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Get all states"""
-import MySQLdb as mysql
+
 import sys
+import MySQLdb as mysql
+
 
 if __name__ == "__main__":
     mysql_username = sys.argv[1]
