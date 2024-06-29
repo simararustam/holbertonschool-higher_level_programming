@@ -26,7 +26,8 @@ if __name__ == "__main__":
     result = cur.fetchall()
 
     for x in result:
-        print("{}".format(x[0]), end=", " if x != result[-1] else "\n")
+        print(x[0], end=", " if x != result[-1] else "")
+    print()
 
     cur.close()
     db.close()
