@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-The "0. Get all states" module
-"""
+"""Get all states"""
 
 import sys
 import MySQLdb as mysql
