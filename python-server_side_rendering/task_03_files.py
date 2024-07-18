@@ -31,6 +31,8 @@ def read_csv(path):
     with open(path) as file:
         csv = csv.DictReader(file)
         for row in csv:
+            row['id'] = int(row['id'])
+            row['price'] = float(row['price'])
             data.append(row)
         return data
 
@@ -49,16 +51,15 @@ def products():
     elif source == "csv":
         data = read_csv('products.csv')
     else:
-        error_msg = "Wrong source"
-        return render_template('product_display.html', error=error_msg)
+        return render_template('product_display.html', error="Wrong source")
     
-    if product_id:
-        product_id = int(product_id)
-        products = [p for p in products if p['id'] == product_id]
-        if not products:
+    if pro_id:
+        pro_id = int(pro_id)
+        data = [p for p in data if p['id'] == pro_id]
+        if not data:
             return render_template('product_display.html', error="Product not found")
     
-    return render_template('product_display.html', data=products)
+    return render_template('product_display.html', data=data)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
