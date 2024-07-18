@@ -27,7 +27,5 @@ def items():
     except json.JSONDecodeError:
         return "Error decoding JSON", 500
 
-
-
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
