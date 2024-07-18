@@ -29,10 +29,8 @@ def items():
 def read_csv(path):
     data = []
     with open(path) as file:
-        csv = csv.DictReader(file)
-        for row in csv:
-            row['id'] = int(row['id'])
-            row['price'] = float(row['price'])
+        csv_file = csv.DictReader(file)
+        for row in csv_file:
             data.append(row)
         return data
 
@@ -60,6 +58,7 @@ def products():
             return render_template('product_display.html', error="Product not found")
     
     return render_template('product_display.html', data=data)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
