@@ -9,11 +9,7 @@
     {% if items %}
         <ul>
             {% for item in items %}
-                {% if not item %}
-                    <p>No item found</p>
-                {% else %}
-                    <li>{{item}}</li>
-                {% endif %}
+                <p>No item found</p>
             {% endfor%}
         </ul>
     {% else %}
